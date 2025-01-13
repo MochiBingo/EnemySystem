@@ -18,12 +18,25 @@ namespace EnemySystem
             enemyBase.Attack();
             enemyBase.TakeDamage();
             enemyBase.Die();
+            Console.ReadKey();
 
             skeleton.Attack();
+            skeleton.TakeDamage();
+            Console.ReadKey();
+
+            ghost.Attack();
+            ghost.TakeDamage();
+            ghost.TakeDamage();
+            ghost.TakeDamage();
+            ghost.TakeDamage();
+            Console.ReadKey();
 
             boss.Attack();
+            boss.Attack();
+            boss.Attack();
+            boss.Attack();
             boss.TakeDamage();
-            
+            Console.ReadKey();
 
         }
     }
