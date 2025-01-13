@@ -15,6 +15,15 @@ namespace EnemySystem
             Ghost ghost = new Ghost();
             Boss boss = new Boss();
 
+            enemyBase.Attack();
+            enemyBase.TakeDamage();
+            enemyBase.Die();
+
+            skeleton.Attack();
+
+            boss.Attack();
+            boss.TakeDamage();
+            
 
         }
     }
@@ -23,6 +32,7 @@ namespace EnemySystem
     {
         public int health = 50;
         public int damage = 10;
+        public Random rand = new Random();
 
         public virtual void Attack()
         {
@@ -47,7 +57,7 @@ namespace EnemySystem
     {
         public override void TakeDamage()
         {
-            Random rand = new Random();
+            
             if (rand.Next(5) >= 3)
             {
                 Console.WriteLine($"Ghost took {damage} damage");
@@ -60,6 +70,20 @@ namespace EnemySystem
     }
     class Boss : EnemyBase
     {
-
+        public override void Attack()
+        {
+            if (rand.Next(7) <= 2)
+            {
+                Console.WriteLine($"Boss did {damage / 2} damage");
+            }
+            else if (rand.Next(7) <= 4)
+            {
+                Console.WriteLine($"Boss did {damage} damage");
+            }
+            else if (rand.Next(7) <= 6)
+            {
+                Console.WriteLine($"Boss did {damage * 2} damage");
+            }
+        }
     }
 }
